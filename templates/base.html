@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <title>Search Pokémon</title>
@@ -7,9 +6,11 @@
 </head>
 <body>
 <header>
-<h1>Pokédex</h1>
+  <div class="static">
+    <img id="pokeball" src="{{ url_for('static', filename='images/pokeball_gray.png') }}"/>
+  </div>
+  <h1>Pokédex</h1>
 </header>
-<img src="{{ url_for('static', filename='images/pokeball_gray.png') }}"/>
 <div class="container">
   {% block content %}
   {% endblock %}

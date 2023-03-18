@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: #fff6
+    background-color: #fff6;
   }
   
   .animated {
@@ -19,6 +19,41 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: #fff6
+    background-color: #fff6;
   }
   
+  body {
+    background-color: #FFFFFF;
+  }
+  
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  #pokeball {
+    height: 50px;
+    width: 50px;
+    transition: background-color 0.3s ease;
+    background-image: url("{{ url_for('static', filename='images/pokeball_white.png') }}");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .static:hover {
+    background-color: #E3350D;
+  }
+  
+  .static:hover img {
+    filter: invert(100%);
+  }
+  
+  h1 {
+    margin-left: 10px;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
