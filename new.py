@@ -57,18 +57,19 @@ def add_pokemon_to_base_html(base_path, pokemon_name):
     # Write updated HTML to file
     with open(base_path, 'w') as f:
         f.write(str(soup))
+
 def clean_pokemon():
-    with open("templates/base.html", "r") as f:
+    with open("templates/index.html", "r") as f:
         contents = f.read()
     soup = BeautifulSoup(contents, "html.parser")
     li_tags = soup.find_all("li")
     for li in li_tags:
         li.decompose()
-    with open("templates/base.html", "w") as f:
+    with open("templates/index.html", "w") as f:
         f.write(str(soup))
 
 def replace_pokemon(base_path):
-    with open("templates/base.html", "r") as f:
+    with open(base_path, "r") as f:
         contents = f.read()
     soup = BeautifulSoup(contents, "html.parser")
     li_tags = soup.find_all("li")
@@ -76,7 +77,7 @@ def replace_pokemon(base_path):
     for li in li_tags:
         li.decompose()
         count += 1
-    with open("templates/base.html", "w") as f:
+    with open(base_path, "w") as f:
         f.write(str(soup))
     for times in range(count):
         response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=1118')

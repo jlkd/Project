@@ -33,13 +33,17 @@ def results():
         
         # Extract the relevant data from the JSON response
         pokemon_name = data['name'].capitalize()
-        sprite_url = data['sprites']['front_default']
+        static_sprite_url = data['sprites']['front_default']
+        animated_sprite_url = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+        abilities = [ability['ability']['name'].capitalize() for ability in data['abilities']]
         
         # Render the result.html template with the relevant variables
-        return render_template('results.html', pokemon_name=pokemon_name, sprite_url=sprite_url)
+        return render_template('results.html', pokemon_name=pokemon_name, static_sprite_url=static_sprite_url, animated_sprite_url=animated_sprite_url, abilities=abilities)
     
     else:
         return "Wrong HTTP method", 400
+
+
 
 
 @app.route('/add_pokemon')
@@ -50,7 +54,7 @@ def add_pokemon():
     pokemon_names = [pokemon['name'] for pokemon in data['results']]
     pokemon_name = random.choice(pokemon_names)
     # Call the add_pokemon_to_base_html function to add a new Pokemon to the HTML
-    new.add_pokemon_to_base_html('templates/base.html', pokemon_name)
+    new.add_pokemon_to_base_html('templates/index.html', pokemon_name)
     return redirect("/")
 
 @app.route('/clean_pokemon')
@@ -60,5 +64,5 @@ def remove_pokemon():
 
 @app.route('/reload_pokemon')
 def refresh_pokemon():
-    new.replace_pokemon('templates/base.html')
+    new.replace_pokemon('templates/index.html')
     return redirect("/")

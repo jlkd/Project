@@ -1,0 +1,24 @@
+.static {
+    flex-shrink: 0;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fff6
+  }
+  
+  .animated {
+    flex-shrink: 0;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fff6
+  }
+  

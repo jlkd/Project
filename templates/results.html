@@ -1,10 +1,35 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
+  <h2>{{ pokemon_name }}</h2>
   {% if error %}
     <p>{{ error }}</p>
   {% else %}
-    <h2>{{ pokemon_name }}</h2>
-    <img src="{{ sprite_url }}" alt="{{ pokemon_name }} sprite">
+    <img id="pokemon-image" src="{{ static_sprite_url }}" class="pokemon-image static">
+    <ul>
+      {% for ability in abilities %}
+        <li>{{ ability }}</li>
+      {% endfor %}
+    </ul>
   {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    var pokemonImage = document.querySelector('#pokemon-image');
+    var staticSpriteUrl = '{{ static_sprite_url }}';
+    var animatedSpriteUrl = '{{ animated_sprite_url }}';
+
+    pokemonImage.addEventListener('mouseover', function() {
+      pokemonImage.src = animatedSpriteUrl;
+      pokemonImage.classList.remove('static');
+      pokemonImage.classList.add('animated');
+    });
+
+    pokemonImage.addEventListener('mouseout', function() {
+      pokemonImage.src = staticSpriteUrl;
+      pokemonImage.classList.remove('animated');
+      pokemonImage.classList.add('static');
+    });
+  </script>
 {% endblock %}
