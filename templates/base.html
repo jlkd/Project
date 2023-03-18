@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Search Pokémon</title>
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<h1>Pokédex</h1>
+</header>
+<img src="{{ url_for('static', filename='images/pokeball_gray.png') }}"/>
+<div class="container">
+  {% block content %}
+  {% endblock %}
+</div>
+<button id="add-pokemon-btn" onclick="location.href='/add_pokemon'">Add Pokemon</button>
+<button id="clean-pokemon-btn" onclick="location.href='/clean_pokemon'">Clean</button>
+<button id="reload-pokemon-btn" onclick="location.href='/reload_pokemon'">Random</button>
+<ul class="results">
+<li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/meloetta-aria"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/648.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>648</p><h5>Meloetta-aria</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Normal</span></div><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Psychic</span></div></div></li><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/sandslash-alola"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10102.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>10102</p><h5>Sandslash-alola</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Ice</span></div><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Steel</span></div></div></li><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/drizzile"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/817.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>817</p><h5>Drizzile</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Water</span></div></div></li></ul>
+<footer>
+<p>Data from <a href="https://pokeapi.co/">PokéAPI</a>.</p>
+</footer>
+</body>
+</html>

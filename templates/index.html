@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form action="/results" method="POST">
+    <label for="pokemon-name">Enter a Pokémon name or ID number:</label>
+    <input type="text" name="query" id="pokemon-name" required>
+    <button type="submit"><img src="{{ url_for('static', filename='images/input-search-bg.png') }}" alt="Search">
+    </button>
+  </form>
+{% endblock %}

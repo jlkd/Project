@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if error %}
+    <p>{{ error }}</p>
+  {% else %}
+    <h2>{{ pokemon_name }}</h2>
+    <img src="{{ sprite_url }}" alt="{{ pokemon_name }} sprite">
+  {% endif %}
+{% endblock %}
