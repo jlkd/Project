@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>{{ pokemon_name }}</h2>
-  {% if error %}
-    <p>{{ error }}</p>
-  {% else %}
-    <img id="pokemon-image" src="{{ static_sprite_url }}" class="pokemon-image static">
-    <ul>
-      {% for ability in abilities %}
-        <li>{{ ability }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  <div class="pokemon-info">
+    <h1 class="pokemon-name">{{ pokemon_name }}</h1>
+    {% if error %}
+      <p>{{ error }}</p>
+    {% else %}
+      <img id="pokemon-image" src="{{ static_sprite_url }}" class="pokemon-image static">
+      <div class="abilities-info">
+        <span>Abilities:</span>
+        <ul>
+          {% for ability in abilities %}
+            <li>{{ ability }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
 {% endblock %}
 
 {% block scripts %}

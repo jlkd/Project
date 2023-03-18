@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="/results" method="POST">
-<label for="pokemon-name">Enter a Pokémon name or ID number:</label>
+  <form action="/results" class="search" method="POST">
+<label for="pokemon-name" id="subheader"><b>Enter a Pokémon name or ID number:</b></label>
 <input id="pokemon-name" name="query" required="" type="text"/>
-<button type="submit"><img alt="Search" src="{{ url_for('static', filename='images/input-search-bg.png') }}"/>
-</button>
+<button id="search-button" type="submit"><img alt="Search" src="{{ url_for('static', filename='images/input-search-bg.png') }}"/></button>
 </form>
 {% endblock %}
 
 {% block body %}
+  <div class="button-container">
 <button id="add-pokemon-btn" onclick="location.href='/add_pokemon'">Add Pokemon</button>
 <button id="clean-pokemon-btn" onclick="location.href='/clean_pokemon'">Clean</button>
 <button id="reload-pokemon-btn" onclick="location.href='/reload_pokemon'">Random</button>
-<ul class="results">
-</ul>
+</div>
+<ul class="results"><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/roselia"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/315.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>315</p><h5>Roselia</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Grass</span></div><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Poison</span></div></div></li><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/deino"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/633.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>633</p><h5>Deino</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Dark</span></div><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Dragon</span></div></div></li><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/bellossom"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/182.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>182</p><h5>Bellossom</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Grass</span></div></div></li><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/orthworm"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/968.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>968</p><h5>Orthworm</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Steel</span></div></div></li><li class="animating" style="opacity: 1; top: 0px; left: 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><figure><a href="https://www.pokemon.com/us/pokedex/flaaffy"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/180.png"/></a></figure><div class="pokemon-info"><p class="id"><span class="number-prefix">#</span>180</p><h5>Flaaffy</h5><div class="abilities"><span class='pill background-color-{t["type"]["name"]}'>Electric</span></div></div></li></ul>
 {% endblock %}
